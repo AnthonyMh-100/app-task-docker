@@ -1,0 +1,17 @@
+<nav class="bg-violet-900 py-2">
+  <div class="container mx-auto flex justify-between items-center">
+    <div>
+      <a href="{% url 'Task:view_index' %}" class="text-white text-md font-semibold transition duration-300 ease-in-out hover:text-gray-300 hover:bg-gray-700 rounded-full py-2 px-4 mr-4">Inicio</a>
+      <a href="{% url 'Task:home_task' %}" class="text-white text-md font-semibold transition duration-300 ease-in-out hover:text-gray-300 hover:bg-gray-800 rounded-full py-2 px-4 mr-4">Tareas</a>
+     
+    </div>
+    <div class="flex justify-center items-center gap-2">
+      {% if request.user.is_authenticated %}
+        <p class="text-white text-md">{{ request.user.first_name | default:request.user.username }}</p>
+        <p class="text-white text-md">{{ request.user.last_name }}</p>
+      {% endif %}
+      <a href="{% url 'Task:logout_task' %}" class="text-white text-lg font-semibold transition duration-300 ease-in-out hover:text-gray-300 hover:bg-gray-700 rounded-full py-2 px-4 mr-4">Logout</a>
+    </div>
+    <!-- Aquí puedes agregar elementos adicionales del menú, como un botón de inicio de sesión o un menú desplegable -->
+  </div>
+</nav>

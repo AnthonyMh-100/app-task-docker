@@ -1,0 +1,28 @@
+<div class="bg-gray-800 p-4 rounded">
+  <h2 class="text-xl font-bold mb-2 text-white">Doing</h2>
+  <!-- Tareas en proceso -->
+  <div class="task-list">
+    <!-- Aquí se generan dinámicamente las tareas -->
+
+    {% for task in tasks_doing %}
+      <div class="task bg-gray-700 text-white flex justify-between p-2 rounded mb-2">
+        <a href="{% url 'Task:one_task' task.id %}">{{ task.title }}</a>
+        <div class="flex justify-center gap-2">
+          <a href="{% url 'Task:change_done' task.id %}" class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Listo</a>
+
+          <a href="{% url 'Task:delete_task' task.id %}" class="inline-block bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Eliminar</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="mt-4 flex justify-center items-center text-white gap-2">
+    {% if tasks_doing.has_previous %}
+      <a href="?doing={{ tasks_doing.previous_page_number }}" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-l">Anterior</a>
+    {% endif %}
+
+    <span class="current">Página {{ tasks_doing.number }} de {{ tasks_doing.paginator.num_pages }}.</span>
+    {% if tasks_doing.has_next %}
+      <a href="?doing={{ tasks_doing.next_page_number }}" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-r">Siguiente</a>
+    {% endif %}
+  </div>
+</div>

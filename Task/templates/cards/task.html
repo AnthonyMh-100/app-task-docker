@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block task %}
+  <div class="text-white p-8 h-screen shadow-md">
+    <h2 class="text-2xl text-black font-bold mb-4">Detalles de la Tarea</h2>
+    <div class="bg-gray-100 shadow-md text-black h-3/6 p-6 grid grid-cols-2 gap-4 rounded-lg">
+      <div>
+        <p class="text-lg font-semibold">Título:</p>
+        <p class="text-gray-800">{{ task.title }}</p>
+      </div>
+      
+      <div>
+        <p class="text-lg font-semibold">Fecha de Inicio:</p>
+        <p class="text-gray-800">{{ task.date_from|date:"d F Y" }}</p>
+      </div>
+      <div>
+        <p class="text-lg font-semibold">Descripción:</p>
+        <p class="text-gray-800">{{ task.description }}</p>
+      </div>
+      <div>
+        <p class="text-lg font-semibold">Fecha de Fin:</p>
+        <p class="text-gray-800">{{ task.date_to|date:"d F Y" }}</p>
+      </div>
+      <div>
+        <p class="text-lg font-semibold">Cliente:</p>
+        <p class="text-gray-800">{{ task.customer }}</p>
+      </div>
+    
+      
+      <div>
+        <p class="text-lg font-semibold">Estado:</p>
+        {% if task.state == 'done' %}
+          <p class="text-gray-800 inline-block bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded-full">{{ task.state }}</p>
+        {% elif task.state == 'doing' %}
+          <p class="text-gray-800 inline-block bg-yellow-500 hover:bg-yellow-400 text-white font-bold py-2 px-4 rounded-full">{{ task.state }}</p>
+        {% else %}
+          <p class="text-gray-800 inline-block bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 rounded-full">{{ task.state }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

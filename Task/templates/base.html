@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+
+    <title>{% block title %}Home{% endblock  %}</title>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+    
+    {% block home %}{% endblock  %}
+    {% block form_task %}{% endblock  %}
+    {% block task %}{% endblock  %}
+    {% block index %}{% endblock  %}
+      
+    
+        
+  </body>
+</html>

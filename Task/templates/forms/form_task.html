@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block form_task %}
+<div class="form max-w-md mx-auto">
+    <h1 class="text-2xl font-semibold mb-4">Nueva tarea</h1>
+    <form action="{% url 'Task:new_task' %}" method="POST" class="max-w-md mx-auto bg-gray-800 shadow-md rounded px-8 pt-6 pb-8 mb-4 text-white">
+        {% csrf_token %}
+        {{task_form.as_div}}
+        <div class="flex items-center justify-between mt-4">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                Guardar
+            </button>
+        </div>
+        
+        </div>
+    </form>
+    
+</div>
+{% endblock  %}
+    
+
+
+
+    
