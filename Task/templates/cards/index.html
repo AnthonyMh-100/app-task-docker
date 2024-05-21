@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Inicio
+{% endblock %}
+    
+
+{% block index %}
+<div class="container mx-auto p-8">
+    <h1 class="text-3xl font-bold mb-8">Dashboard</h1>
+
+    <div class="grid grid-cols-3 gap-4">
+        <!-- Backlog -->
+        <div class="bg-blue-500 text-white rounded-lg p-6">
+            <h2 class="text-2xl font-semibold mb-4">Backlog</h2>
+            <p class="text-3xl font-bold">{{ task_backlog }}</p>
+        </div>
+
+        <!-- Doing -->
+        <div class="bg-yellow-500 text-white rounded-lg p-6">
+            <h2 class="text-2xl font-semibold mb-4">Doing</h2>
+            <p class="text-3xl font-bold">{{ task_doing }}</p>
+        </div>
+
+        <!-- Done -->
+        <div class="bg-green-500 text-white rounded-lg p-6">
+            <h2 class="text-2xl font-semibold mb-4">Done</h2>
+            <p class="text-3xl font-bold">{{ task_done }}</p>
+        </div>
+    </div>
+
+    <!-- Total completo -->
+    <div class="mt-8 bg-gray-700 text-white rounded-lg p-6">
+        <h2 class="text-2xl font-semibold mb-4">Total Completo</h2>
+        <p class="text-3xl font-bold">{{task_total}}</p>
+    </div>
+</div>
+
+{% endblock  %}
+    
